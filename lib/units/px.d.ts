@@ -4,6 +4,7 @@ import type { IUnitInput, IUnitValue, IUnit } from '.'
  * @example
  * ```js
  * px(500) // -> () => 500
+ * 
  * px(() => window.innerHeight) // -> () => window.innerHeight
  * ```
  * 
