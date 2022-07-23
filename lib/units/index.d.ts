@@ -12,3 +12,5 @@ export interface IUnit {
 export type IUnitInput = number | (() => number)
 
 export { px } from './px'
+
+export { em } from './em'
