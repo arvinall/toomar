@@ -9,3 +9,5 @@ export { percent } from './units/percent'
 export { fromY } from './configs/from-y'
 
 export { fromY as from } from './configs/from-y'
+
+export { fromX } from './configs/from-x'
