@@ -15,3 +15,5 @@ export { fromX } from './configs/from-x'
 export { toY } from './configs/to-y'
 
 export { toY as to } from './configs/to-y'
+
+export { toX } from './configs/to-x'
