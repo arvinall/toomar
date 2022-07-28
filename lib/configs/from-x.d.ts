@@ -1,4 +1,4 @@
-import { IUnitValue } from '../units'
+import { IUnitInput, IUnitValue } from '../units'
 
 /**
  * @example
@@ -12,4 +12,4 @@ import { IUnitValue } from '../units'
  * 
  * @returns an object with `fromX` property that is equal to `value` argument
  */
-export function fromX (value: IUnitValue): { fromX: IUnitValue }
+export function fromX (value: IUnitInput): { fromX: IUnitValue }
