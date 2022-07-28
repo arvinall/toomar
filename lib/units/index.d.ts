@@ -8,8 +8,8 @@ export interface IUnit {
   (...args: unknown[]): IUnitValue
 }
 
-/** UnitInput is a number or a function that returns a number */
-export type IUnitInput = number | (() => number)
+/** UnitInput is a number or {@link IUnitValue} */
+export type IUnitInput = number | IUnitValue
 
 export { px } from './px'
 
