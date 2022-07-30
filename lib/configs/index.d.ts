@@ -13,3 +13,5 @@ export { toX } from './to-x'
 export { scroll } from './scroll'
 
 export { coverEdges } from './cover-edges'
+
+export { uncoverEdges } from './uncover-edges'

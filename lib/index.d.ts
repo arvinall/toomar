@@ -21,3 +21,5 @@ export { toX } from './configs/to-x'
 export { scroll } from './configs/scroll'
 
 export { coverEdges } from './configs/cover-edges'
+
+export { uncoverEdges } from './configs/uncover-edges'
