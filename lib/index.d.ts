@@ -19,3 +19,5 @@ export { toY as to } from './configs/to-y'
 export { toX } from './configs/to-x'
 
 export { scroll } from './configs/scroll'
+
+export { coverEdges } from './configs/cover-edges'
