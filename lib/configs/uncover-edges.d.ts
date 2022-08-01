@@ -1,11 +1,11 @@
 /**
  * @example
  * ```js
- * uncoverEdges() // -> { uncoverEdges: false }
+ * uncoverEdges() // -> { coverEdges: false }
  * ```
  * 
- * @returns an object with `uncoverEdges` property that is equal to `false`
+ * @returns an object with `coverEdges` property that is equal to `false`
  * 
  * @see {@link configs/cover-edges.coverEdges}
  */
-export function uncoverEdges (): { uncoverEdges: false }
+export function uncoverEdges (): { coverEdges: false }
