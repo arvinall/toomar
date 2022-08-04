@@ -1,7 +1,7 @@
 export default {
   collectCoverage: true,
   coverageDirectory: 'coverage',
-  coverageProvider: 'v8',
+  coveragePathIgnorePatterns: ['<rootDir>/tests/'],
   clearMocks: true,
   transform: {}
 }
