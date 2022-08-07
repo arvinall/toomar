@@ -8,6 +8,8 @@ export { percent } from './units/percent'
 // Operators
 export { em as multiply } from './units/em'
 
+export { divide } from './operators/divide'
+
 // Configs
 export { fromY } from './configs/from-y'
 
