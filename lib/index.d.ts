@@ -33,4 +33,6 @@ export { coverEdges } from './configs/cover-edges'
 
 export { uncoverEdges } from './configs/uncover-edges'
 
+export { strictBoundaries } from './configs/strict-boundaries'
+
 export { config } from './configs/config'
