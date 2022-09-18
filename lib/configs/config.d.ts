@@ -7,10 +7,17 @@ import { toX } from './to-x'
 import { scroll } from './scroll'
 import { coverEdges } from './cover-edges'
 import { uncoverEdges } from './uncover-edges'
+import { strictBoundaries } from './strict-boundaries'
+import { looseBoundaries } from './loose-boundaries'
 
 type CoverEdges = ReturnType<typeof coverEdges> | ReturnType<typeof uncoverEdges>
 
-type Defaults = ReturnType<typeof scroll> & CoverEdges
+type StrictBoundaries = (
+  ReturnType<typeof strictBoundaries> |
+  ReturnType<typeof looseBoundaries>
+)
+
+type Defaults = ReturnType<typeof scroll> & CoverEdges & StrictBoundaries
 
 type FromX = ReturnType<typeof fromX>
 
@@ -37,6 +44,7 @@ type Config <T extends ConfigParameters> = MergeAll<[
  * ##### Unconditionals
  * - {@link configs/scroll.scroll}`(globalThis)`
  * - {@link configs/cover-edges.coverEdges}`()`
+ * - {@link configs/strict-boundaries.strictBoundaries}`()`
  * ##### Conditionals
  * - {@link configs/from-y.fromY}`(0)`
  *   > When {@link configs/to-y.toY} exists
@@ -53,6 +61,7 @@ type Config <T extends ConfigParameters> = MergeAll<[
  * //  ...fromY(0),
  * //  ...scroll(globalThis),
  * //  ...coverEdges()
+ * //  ...strictBoundaries()
  * // }
  * 
  * const basedOnInnerWidth = percent(() => window.innerWidth)
@@ -60,13 +69,15 @@ type Config <T extends ConfigParameters> = MergeAll<[
  * config(
  *   toX(basedOnInnerWidth(150)),
  *   scroll(document.querySelector('.scrollable-element')),
- *   uncoverEdges()
+ *   uncoverEdges(),
+ *   looseBoundaries()
  * )
  * // -> {
  * //  ...toX(basedOnInnerWidth(150)),
  * //  ...fromX(0),
  * //  ...scroll(document.querySelector('.scrollable-element')),
  * //  ...uncoverEdges()
+ * //  ...looseBoundaries()
  * // }
  * ```
  * 
