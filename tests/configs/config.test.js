@@ -13,12 +13,15 @@ import { toY } from '../../lib/configs/to-y'
 import { fromY } from '../../lib/configs/from-y'
 import { toX } from '../../lib/configs/to-x'
 import { fromX } from '../../lib/configs/from-x'
+import { strictBoundaries } from '../../lib/configs/strict-boundaries'
+import { looseBoundaries } from '../../lib/configs/loose-boundaries'
 
 const { Promise } = globalThis
 
 test(
   'config must return an object with' + ' ' +
-    'coverEdges property that is equal to coverEdges()' + ' ' +
+    'coverEdges property that is equal to coverEdges()' + ', ' +
+    'strictBoundaries property that is equal to strictBoundaries()' + ' ' +
     'and scroll property that is equal to scroll(globalThis)' + ' ' +
     'by default when has no any argument',
   async () => {
@@ -27,6 +30,10 @@ test(
     expect(configs).toHaveProperty('coverEdges')
 
     expect(configs.coverEdges).toBe(true)
+
+    expect(configs).toHaveProperty('strictBoundaries')
+
+    expect(configs.strictBoundaries).toBe(true)
 
     expect(configs).toHaveProperty('scroll')
 
@@ -45,11 +52,11 @@ test(
 )
 
 test(
-  'config must return an object with' + ' ' +
-    'custom properties and' + ' ' +
-    'coverEdges property that is equal to coverEdges()' + ' ' +
+  'config must return an object with custom properties and' + ' ' +
+    'coverEdges property that is equal to coverEdges()' + ', ' +
+    'strictBoundaries property that is equal to strictBoundaries()' + ' ' +
     'and scroll property that is equal to scroll(globalThis)' + ' ' +
-    'by default when has any argument that does not affect coverEdges and scroll',
+    'by default when has any argument that does not affect coverEdges, strictBoundaries and scroll',
   async () => {
     const customConfig1 = { a: 0, b: 1 }
     const customConfig2 = { c: 2, d: 3 }
@@ -58,7 +65,7 @@ test(
     const configs = config(customConfig1, customConfig2)
 
     expect(configs).toEqual({
-      ...customConfigs, ...coverEdges(), scroll: configs.scroll
+      ...customConfigs, ...coverEdges(), scroll: configs.scroll, ...strictBoundaries()
     })
 
     expect(configs.scroll).toBeInstanceOf(RxObservable)
@@ -77,17 +84,22 @@ test(
 
 test(
   'config must return an object with' + ' ' +
-    'coverEdges and scroll properties that overridden by config arguments' + ' ' +
-    'when has any argument that change coverEdges and scroll',
+    'coverEdges, strictBoundaries and scroll properties that overridden by config arguments' + ' ' +
+    'when has any argument that change coverEdges, strictBoundaries and scroll',
   async () => {
     const eventEmitter = new EventEmitter()
 
     const uncoverEdgesConfig = uncoverEdges()
+    const looseBoundariesConfig = looseBoundaries()
     const scrollConfig = scroll(eventEmitter)
 
-    const configs = config(uncoverEdgesConfig, scrollConfig)
+    const configs = config(uncoverEdgesConfig, looseBoundariesConfig, scrollConfig)
 
-    expect(configs).toEqual({ ...uncoverEdgesConfig, ...scrollConfig })
+    expect(configs).toEqual({
+      ...uncoverEdgesConfig,
+      ...looseBoundariesConfig,
+      ...scrollConfig
+    })
 
     expect(configs.scroll).toBeInstanceOf(RxObservable)
 
@@ -107,7 +119,7 @@ test(
   'config must return an object with' + ' ' +
     'toY and to properties that is equal to its config argument and' + ' ' +
     'fromY and from properties that is equal to fromY(0)' + ' ' +
-    'alongside coverEdges and scroll properties by default' + ' ' +
+    'alongside coverEdges, strictBoundaries and scroll properties by default' + ' ' +
     'when toY config is available and fromY is not exists',
   () => {
     const toYConfig = toY(100)
@@ -133,7 +145,7 @@ test(
 test(
   'config must return an object with' + ' ' +
     'toY/to and fromY/from properties that is equal to its config arguments and' + ' ' +
-    'alongside coverEdges and scroll properties by default' + ' ' +
+    'alongside coverEdges, strictBoundaries and scroll properties by default' + ' ' +
     'when both of toY and fromY configs are available',
   () => {
     const fromYConfig = fromY(100)
@@ -149,7 +161,7 @@ test(
   'config must return an object with' + ' ' +
     'toX property that is equal to its config argument and' + ' ' +
     'fromX property that is equal to fromX(0)' + ' ' +
-    'alongside coverEdges and scroll properties by default' + ' ' +
+    'alongside coverEdges, strictBoundaries and scroll properties by default' + ' ' +
     'when toX config is available and fromX is not exists',
   () => {
     const toXConfig = toX(100)
@@ -169,7 +181,7 @@ test(
 test(
   'config must return an object with' + ' ' +
     'toX and fromX properties that is equal to its config arguments and' + ' ' +
-    'alongside coverEdges and scroll properties by default' + ' ' +
+    'alongside coverEdges, strictBoundaries and scroll properties by default' + ' ' +
     'when both of toX and fromX configs are available',
   () => {
     const fromXConfig = fromX(100)
