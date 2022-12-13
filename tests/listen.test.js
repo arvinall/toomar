@@ -473,7 +473,7 @@ describe('Strict/Loose boundaries', () => {
   test(
     'listen returned rxjs observable should not observe' + ' ' +
     'when target scrollTop or scrollLeft is out of fromY, toY or fromX, toX ranges' + ' ' +
-    'with strictBoundaries config',
+    'with strictBoundaries config (default)',
     async () => {
       const fromYSource = 50
       const toYSource = 100
@@ -577,7 +577,7 @@ describe('Strict/Loose boundaries', () => {
 })
 
 describe('Cover/Uncover edges', () => {
-  describe('Cover edges', () => {
+  describe('Cover edges (default)', () => {
     describe('Single axis', () => {
       test(
         'listen returned rxjs observable must observe' + ' ' +
