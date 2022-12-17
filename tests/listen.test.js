@@ -701,8 +701,10 @@ describe('Cover/Uncover edges', () => {
     })
 
     describe('Multiple axes', () => {
-      describe('With strictBoundaries config (Default)', () => {
-        describe('When previous target scrollTop and scrollLeft were in range', () => {
+      describe(
+        'With strictBoundaries config (Default)' + ' ' +
+        'When previous target scrollTop and scrollLeft were in range',
+        () => {
           test(
             'listen returned rxjs observable must observe' + ' ' +
             'when target scrollTop and scrollLeft are behind of fromY and fromX' + ' ' +
@@ -946,8 +948,8 @@ describe('Cover/Uncover edges', () => {
               subscriber.unsubscribe()
             }
           )
-        })
-      })
+        }
+      )
     })
   })
 
