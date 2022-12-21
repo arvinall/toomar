@@ -1710,6 +1710,276 @@ describe('Cover/Uncover edges', () => {
           )
         }
       )
+
+      describe('With looseBoundaries config', () => {
+        test(
+          'listen returned rxjs observable should not observe' + ' ' +
+          'when target scrollTop and scrollLeft are behind of fromY and fromX',
+          async () => {
+            const fromYSource = 50
+            const toYSource = 100
+            const eventEmitter = new EventEmitter()
+            const to100Config = config(
+              fromY(fromYSource), toY(toYSource),
+              fromX(fromYSource), toX(toYSource),
+              scroll(eventEmitter),
+              uncoverEdges(),
+              looseBoundaries()
+            )
+            const observable = listen(to100Config)
+
+            let { promise, resolve, reject } = createPromise()
+
+            const subscriber = observable.subscribe(state => resolve(state))
+
+            emitScroll(eventEmitter, createScrollEvent(
+              'top', fromYSource * 1.5,
+              'left', fromYSource * 1.5
+            ))
+
+            await promise
+
+            const didNotObserveMessage = 'Did not observe after 10ms'
+
+            ;({ promise, resolve, reject } = createPromise())
+
+            emitScroll(eventEmitter, createScrollEvent(
+              'top', fromYSource / 2,
+              'left', fromYSource / 2
+            ))
+
+            setTimeout(() => reject(new Error(didNotObserveMessage)), 10)
+
+            await expect(promise).rejects.toThrowError(didNotObserveMessage)
+
+            subscriber.unsubscribe()
+          }
+        )
+
+        test(
+          'listen returned rxjs observable should not observe' + ' ' +
+          'when previous target scrollTop was in range' + ' ' +
+          'and target scrollTop is behind of fromY',
+          async () => {
+            const fromYSource = 50
+            const toYSource = 100
+            const eventEmitter = new EventEmitter()
+            const to100Config = config(
+              fromY(fromYSource), toY(toYSource),
+              fromX(fromYSource), toX(toYSource),
+              scroll(eventEmitter),
+              uncoverEdges(),
+              looseBoundaries()
+            )
+            const observable = listen(to100Config)
+
+            let { promise, resolve, reject } = createPromise()
+
+            const subscriber = observable.subscribe(state => resolve(state))
+
+            emitScroll(eventEmitter, createScrollEvent(
+              'top', fromYSource * 1.5,
+              'left', 0
+            ))
+
+            await promise
+
+            const didNotObserveMessage = 'Did not observe after 10ms'
+
+            ;({ promise, resolve, reject } = createPromise())
+
+            emitScroll(eventEmitter, createScrollEvent(
+              'top', fromYSource / 2,
+              'left', 0
+            ))
+
+            setTimeout(() => reject(new Error(didNotObserveMessage)), 10)
+
+            await expect(promise).rejects.toThrowError(didNotObserveMessage)
+
+            subscriber.unsubscribe()
+          }
+        )
+
+        test(
+          'listen returned rxjs observable should not observe' + ' ' +
+          'when previous target scrollLeft was in range' + ' ' +
+          'and target scrollLeft is behind of fromX',
+          async () => {
+            const fromYSource = 50
+            const toYSource = 100
+            const eventEmitter = new EventEmitter()
+            const to100Config = config(
+              fromY(fromYSource), toY(toYSource),
+              fromX(fromYSource), toX(toYSource),
+              scroll(eventEmitter),
+              uncoverEdges(),
+              looseBoundaries()
+            )
+            const observable = listen(to100Config)
+
+            let { promise, resolve, reject } = createPromise()
+
+            const subscriber = observable.subscribe(state => resolve(state))
+
+            emitScroll(eventEmitter, createScrollEvent(
+              'top', 0,
+              'left', fromYSource * 1.5
+            ))
+
+            await promise
+
+            const didNotObserveMessage = 'Did not observe after 10ms'
+
+            ;({ promise, resolve, reject } = createPromise())
+
+            emitScroll(eventEmitter, createScrollEvent(
+              'top', 0,
+              'left', fromYSource / 2
+            ))
+
+            setTimeout(() => reject(new Error(didNotObserveMessage)), 10)
+
+            await expect(promise).rejects.toThrowError(didNotObserveMessage)
+
+            subscriber.unsubscribe()
+          }
+        )
+
+        test(
+          'listen returned rxjs observable should not observe' + ' ' +
+          'when target scrollTop and scrollLeft are beyond of toY and toX',
+          async () => {
+            const fromYSource = 50
+            const toYSource = 100
+            const eventEmitter = new EventEmitter()
+            const to100Config = config(
+              fromY(fromYSource), toY(toYSource),
+              fromX(fromYSource), toX(toYSource),
+              scroll(eventEmitter),
+              uncoverEdges(),
+              looseBoundaries()
+            )
+            const observable = listen(to100Config)
+
+            let { promise, resolve, reject } = createPromise()
+
+            const subscriber = observable.subscribe(state => resolve(state))
+
+            emitScroll(eventEmitter, createScrollEvent(
+              'top', fromYSource * 1.5,
+              'left', fromYSource * 1.5
+            ))
+
+            await promise
+
+            const didNotObserveMessage = 'Did not observe after 10ms'
+
+            ;({ promise, resolve, reject } = createPromise())
+
+            emitScroll(eventEmitter, createScrollEvent(
+              'top', toYSource * 1.5,
+              'left', toYSource * 1.5
+            ))
+
+            setTimeout(() => reject(new Error(didNotObserveMessage)), 10)
+
+            await expect(promise).rejects.toThrowError(didNotObserveMessage)
+
+            subscriber.unsubscribe()
+          }
+        )
+
+        test(
+          'listen returned rxjs observable should not observe' + ' ' +
+          'when previous target scrollTop was in range' + ' ' +
+          'and target scrollTop is beyond of toY',
+          async () => {
+            const fromYSource = 50
+            const toYSource = 100
+            const eventEmitter = new EventEmitter()
+            const to100Config = config(
+              fromY(fromYSource), toY(toYSource),
+              fromX(fromYSource), toX(toYSource),
+              scroll(eventEmitter),
+              uncoverEdges(),
+              looseBoundaries()
+            )
+            const observable = listen(to100Config)
+
+            let { promise, resolve, reject } = createPromise()
+
+            const subscriber = observable.subscribe(state => resolve(state))
+
+            emitScroll(eventEmitter, createScrollEvent(
+              'top', fromYSource * 1.5,
+              'left', 0
+            ))
+
+            await promise
+
+            const didNotObserveMessage = 'Did not observe after 10ms'
+
+            ;({ promise, resolve, reject } = createPromise())
+
+            emitScroll(eventEmitter, createScrollEvent(
+              'top', toYSource * 1.5,
+              'left', 0
+            ))
+
+            setTimeout(() => reject(new Error(didNotObserveMessage)), 10)
+
+            await expect(promise).rejects.toThrowError(didNotObserveMessage)
+
+            subscriber.unsubscribe()
+          }
+        )
+
+        test(
+          'listen returned rxjs observable should not observe' + ' ' +
+          'when previous target scrollLeft was in range' + ' ' +
+          'and target scrollLeft is beyond of toX',
+          async () => {
+            const fromYSource = 50
+            const toYSource = 100
+            const eventEmitter = new EventEmitter()
+            const to100Config = config(
+              fromY(fromYSource), toY(toYSource),
+              fromX(fromYSource), toX(toYSource),
+              scroll(eventEmitter),
+              uncoverEdges(),
+              looseBoundaries()
+            )
+            const observable = listen(to100Config)
+
+            let { promise, resolve, reject } = createPromise()
+
+            const subscriber = observable.subscribe(state => resolve(state))
+
+            emitScroll(eventEmitter, createScrollEvent(
+              'top', 0,
+              'left', fromYSource * 1.5
+            ))
+
+            await promise
+
+            const didNotObserveMessage = 'Did not observe after 10ms'
+
+            ;({ promise, resolve, reject } = createPromise())
+
+            emitScroll(eventEmitter, createScrollEvent(
+              'top', 0,
+              'left', toYSource * 1.5
+            ))
+
+            setTimeout(() => reject(new Error(didNotObserveMessage)), 10)
+
+            await expect(promise).rejects.toThrowError(didNotObserveMessage)
+
+            subscriber.unsubscribe()
+          }
+        )
+      })
     })
   })
 })
