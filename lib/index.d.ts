@@ -15,15 +15,11 @@ export { add } from './operators/add'
 export { subtract } from './operators/subtract'
 
 // Configs
-export { fromY } from './configs/from-y'
-
-export { fromY as from } from './configs/from-y'
+export { fromY, fromY as from } from './configs/from-y'
 
 export { fromX } from './configs/from-x'
 
-export { toY } from './configs/to-y'
-
-export { toY as to } from './configs/to-y'
+export { toY, toY as to } from './configs/to-y'
 
 export { toX } from './configs/to-x'
 
