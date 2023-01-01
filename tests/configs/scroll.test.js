@@ -1,6 +1,6 @@
 import { EventEmitter } from 'events'
 
-import { test, expect } from '@jest/globals'
+import { test, expect, jest } from '@jest/globals'
 import { Observable as RxObservable } from 'rxjs'
 
 import { scroll } from '../../lib/configs/scroll'
@@ -24,5 +24,26 @@ test(
     ))
 
     expect(observableValue).toBe(event)
+  }
+)
+
+test(
+  'scroll must pass eventListenerOptions (second) argument' + ' ' +
+  'to target EventTarget on subscription',
+  async () => {
+    const eventListenerOptions = { capture: true }
+
+    const eventTarget = {
+      addEventListener: jest.fn(() => {}),
+      removeEventListener () {}
+    }
+
+    const scrollConfig = scroll(eventTarget, eventListenerOptions)
+
+    scrollConfig.scroll.subscribe(() => {})
+
+    expect(eventTarget.addEventListener.mock.calls.length).toBe(1)
+    expect(eventTarget.addEventListener.mock.calls[0].length).toBe(3)
+    expect(eventTarget.addEventListener.mock.calls[0][2]).toBe(eventListenerOptions)
   }
 )
