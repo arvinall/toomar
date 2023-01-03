@@ -5,6 +5,8 @@ import {
 } from 'rxjs/internal/observable/fromEvent'
 import { Observable as RxObservable } from 'rxjs'
 
+interface ScrollConfig { scroll: RxObservable<Event> }
+
 /**
  * @example
  * ```js
@@ -17,20 +19,20 @@ import { Observable as RxObservable } from 'rxjs'
  * // }
  * ```
  * 
- * @param value object that emits `scroll` event, HTMLElement or window
+ * @param source `EventTarget` that emits `scroll` event, `HTMLElement` or `window`
  * @param eventListenerOptions same as [EventTarget#addEventListener options](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#options) argument
  * 
  * @returns
  * an object with `scroll` property that is equal to rxjs observable
- * that generates from `scroll` event of `value` argument
+ * that generates from `scroll` event of `source` argument
  * 
  * @see [rxjs.Observable](https://rxjs.dev/api/index/class/Observable)
  * @see [rxjs.fromEvent](https://rxjs.dev/api/index/function/fromEvent)
  */
 export function scroll (
-  value: HasEventTargetAddRemove<Event> | ArrayLike<HasEventTargetAddRemove<Event>>,
+  source: HasEventTargetAddRemove<Event> | ArrayLike<HasEventTargetAddRemove<Event>>,
   eventListenerOptions?: EventListenerOptions
-): { scroll: RxObservable<Event> }
+): ScrollConfig
 export function scroll (
-  value: JQueryStyleEventEmitter<any, Event> | ArrayLike<JQueryStyleEventEmitter<any, Event>>
-): { scroll: RxObservable<Event> }
+  source: JQueryStyleEventEmitter<any, Event> | ArrayLike<JQueryStyleEventEmitter<any, Event>>
+): ScrollConfig

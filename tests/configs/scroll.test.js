@@ -7,7 +7,7 @@ import { scroll } from '../../lib/configs/scroll'
 
 test(
   'scroll must return an object with scroll property' + ' ' +
-    'that is equal to rxjs observable that generates from scroll event of value argument',
+    'that is equal to rxjs observable that generates from scroll event of source argument',
   async () => {
     const event = { type: 'scroll' }
     const eventEmitter = new EventEmitter()
