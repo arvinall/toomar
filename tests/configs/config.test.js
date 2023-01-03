@@ -3,7 +3,7 @@ import { EventEmitter } from 'events'
 import { test, expect } from '@jest/globals'
 import { Observable as RxObservable } from 'rxjs'
 
-import { globalEventEmitter } from './global-this'
+import { globalEventEmitter } from '../set-event-emitter-to-global-this'
 
 import { config } from '../../lib/configs/config'
 import { coverEdges } from '../../lib/configs/cover-edges'

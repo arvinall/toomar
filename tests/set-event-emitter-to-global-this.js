@@ -1,3 +1,5 @@
 import { EventEmitter } from 'events'
 
-Object.setPrototypeOf(globalThis, new EventEmitter())
+export const globalEventEmitter = new EventEmitter()
+
+Object.setPrototypeOf(globalThis, globalEventEmitter)
