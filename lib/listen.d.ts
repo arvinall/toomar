@@ -13,10 +13,22 @@ type ToX = ReturnType<typeof toX>
 
 type ToYAndToX = ToY & ToX
 
+type TypeOfRxObservable <T> = (
+  T extends RxObservable<Event>
+    ? Event
+    : T['__T__']
+)
+
+type TargetOfRxObservable <T> = (
+  T extends RxObservable<Event>
+    ? HTMLElement
+    : T['__T__']['target']
+)
+
 interface IBaseState <T> {
   config: T,
-  event: Event,
-  targetElement: HTMLElement
+  event: TypeOfRxObservable<T['scroll']>,
+  targetElement: TargetOfRxObservable<T['scroll']>
 }
 
 interface IYState <T> extends IBaseState <T> { y: number }

@@ -1,5 +1,7 @@
 import { MergeAll } from 'ramda/tools'
 
+import type { IScrollConfig } from './scroll'
+
 import { fromY } from './from-y'
 import { toY } from './to-y'
 import { fromX } from './from-x'
@@ -23,9 +25,9 @@ type FromX = ReturnType<typeof fromX>
 
 type FromY = ReturnType<typeof fromY>
 
-type OrOptionals = FromY | FromX
+type OrOptionals = FromY | FromX | IScrollConfig<unknown>
 
-type AndOptionals = FromY & FromX
+type AndOptionals = FromY & FromX & IScrollConfig
 
 type Requireds = ReturnType<typeof toY> | ReturnType<typeof toX>
 

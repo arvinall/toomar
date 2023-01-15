@@ -5,7 +5,57 @@ import {
 } from 'rxjs/internal/observable/fromEvent'
 import { Observable as RxObservable } from 'rxjs'
 
-interface ScrollConfig { scroll: RxObservable<Event> }
+/**
+ * `ITarget` is an object with `scrollTop` and `scrollLeft` properties
+ * 
+ * that used to describe scroll state frame
+ */
+export interface ITarget {
+  scrollTop: number
+  scrollLeft: number
+}
+
+/**
+ * `IEventPresenter` is an object with `target` property
+ * 
+ * that can used instead of scroll event when source of scroll is not an `EventTarget`
+ * 
+ * @typeParam T `target`
+ * @typeParam E `realEvent`
+ */
+export interface IEventPresenter <T extends ITarget = ITarget, E = undefined> {
+  target: T
+
+  /** `realEvent` optional property used when source of scroll is another event */
+  realEvent: E
+}
+
+/**
+ * `ICastableRxObservable` is equivalent to `rxjs.Observable`
+ * 
+ * with just one more special typescript-only property
+ * 
+ * @see [rxjs.Observable](https://rxjs.dev/api/index/class/Observable)
+ */
+interface ICastableRxObservable <T> extends RxObservable <T> {
+  /** `__T__` type is equal to `T` type argument */
+  __T__: T
+}
+
+/**
+ * `IScrollConfig` is an object with `scroll` property
+ * 
+ * @typeParam T type of value that scroll observable observe (`Event` or {@link IEventPresenter})
+ */
+export interface IScrollConfig <
+  T extends Event | IEventPresenter<unknown, unknown> = Event
+> {
+  /**
+   * `scroll` is an `rxjs.Observable` when `T` is `Event`
+   * or a `ICastableRxObservable` when it is not
+  */
+  scroll: T extends Event ? RxObservable<Event> : ICastableRxObservable<T>
+}
 
 /**
  * @example
@@ -32,7 +82,7 @@ interface ScrollConfig { scroll: RxObservable<Event> }
 export function scroll (
   source: HasEventTargetAddRemove<Event> | ArrayLike<HasEventTargetAddRemove<Event>>,
   eventListenerOptions?: EventListenerOptions
-): ScrollConfig
+): IScrollConfig
 export function scroll (
   source: JQueryStyleEventEmitter<any, Event> | ArrayLike<JQueryStyleEventEmitter<any, Event>>
-): ScrollConfig
+): IScrollConfig
