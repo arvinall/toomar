@@ -37,5 +37,8 @@ export { looseBoundaries } from './configs/loose-boundaries'
 
 export { config } from './configs/config'
 
+// Locators
+export { maxScrollY, maxScrollY as maxScroll } from './locators/max-scroll-y'
+
 // Listen
 export { listen } from './listen'
