@@ -7,3 +7,5 @@ export { topOf } from './top-of'
 export { leftOf } from './left-of'
 
 export { bottomOf } from './bottom-of'
+
+export { rightOf } from './right-of'
