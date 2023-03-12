@@ -46,5 +46,7 @@ export { topOf } from './locators/top-of'
 
 export { leftOf } from './locators/left-of'
 
+export { bottomOf } from './locators/bottom-of'
+
 // Listen
 export { listen } from './listen'

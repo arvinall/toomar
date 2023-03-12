@@ -5,3 +5,5 @@ export { maxScrollX } from './max-scroll-x'
 export { topOf } from './top-of'
 
 export { leftOf } from './left-of'
+
+export { bottomOf } from './bottom-of'
