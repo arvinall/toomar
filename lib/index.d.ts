@@ -56,5 +56,7 @@ export { auditAnimationFrame } from './schedulers/audit-animation-frame'
 // Transformers
 export { fractionYOf, fractionYOf as fractionOf } from './transformers/fraction-y-of'
 
+export { fractionXOf } from './transformers/fraction-x-of'
+
 // Listen
 export { listen } from './listen'
