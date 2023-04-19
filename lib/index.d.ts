@@ -58,5 +58,7 @@ export { fractionYOf, fractionYOf as fractionOf } from './transformers/fraction-
 
 export { fractionXOf } from './transformers/fraction-x-of'
 
+export { directionOfY, directionOfY as direction } from './transformers/direction-of-y'
+
 // Listen
 export { listen } from './listen'
