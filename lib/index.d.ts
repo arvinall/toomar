@@ -62,5 +62,11 @@ export { directionOfY, directionOfY as direction } from './transformers/directio
 
 export { directionOfX } from './transformers/direction-of-x'
 
+// Filters
+export {
+  filterOutYDuplicates,
+  filterOutYDuplicates as filterOutDuplicates
+} from './filters/filter-out-y-duplicates'
+
 // Listen
 export { listen } from './listen'
