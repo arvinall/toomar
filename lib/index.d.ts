@@ -37,6 +37,8 @@ export { looseBoundaries } from './configs/loose-boundaries'
 
 export { cleanEdges } from './configs/clean-edges'
 
+export { uncleanEdges } from './configs/unclean-edges'
+
 export { config } from './configs/config'
 
 // Locators
