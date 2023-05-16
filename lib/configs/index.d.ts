@@ -22,4 +22,6 @@ export { strictBoundaries } from './strict-boundaries'
 
 export { looseBoundaries } from './loose-boundaries'
 
+export { cleanEdges } from './clean-edges'
+
 export { config } from './config'
