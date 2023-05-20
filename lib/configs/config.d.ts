@@ -11,6 +11,8 @@ import { coverEdges } from './cover-edges'
 import { uncoverEdges } from './uncover-edges'
 import { strictBoundaries } from './strict-boundaries'
 import { looseBoundaries } from './loose-boundaries'
+import { cleanEdges } from './clean-edges'
+import { uncleanEdges } from './unclean-edges'
 
 type CoverEdges = ReturnType<typeof coverEdges> | ReturnType<typeof uncoverEdges>
 
@@ -19,7 +21,9 @@ type StrictBoundaries = (
   ReturnType<typeof looseBoundaries>
 )
 
-type Defaults = ReturnType<typeof scroll> & CoverEdges & StrictBoundaries
+type CleanEdges = ReturnType<typeof cleanEdges> | ReturnType<typeof uncleanEdges>
+
+type Defaults = ReturnType<typeof scroll> & CoverEdges & StrictBoundaries & CleanEdges
 
 type FromX = ReturnType<typeof fromX>
 
@@ -47,6 +51,7 @@ type Config <T extends ConfigParameters> = MergeAll<[
  * - {@link configs/scroll.scroll}`(globalThis)`
  * - {@link configs/cover-edges.coverEdges}`()`
  * - {@link configs/strict-boundaries.strictBoundaries}`()`
+ * - {@link configs/clean-edges.cleanEdges}`()`
  * ##### Conditionals
  * - {@link configs/from-y.fromY}`(0)`
  *   > When {@link configs/to-y.toY} exists
@@ -62,8 +67,9 @@ type Config <T extends ConfigParameters> = MergeAll<[
  * //  ...to(basedOnInnerHeight(150)),
  * //  ...fromY(0),
  * //  ...scroll(globalThis),
- * //  ...coverEdges()
- * //  ...strictBoundaries()
+ * //  ...coverEdges(),
+ * //  ...strictBoundaries(),
+ * //  ...cleanEdges()
  * // }
  * 
  * const basedOnInnerWidth = percent(() => window.innerWidth)
@@ -72,14 +78,16 @@ type Config <T extends ConfigParameters> = MergeAll<[
  *   toX(basedOnInnerWidth(150)),
  *   scroll(document.querySelector('.scrollable-element')),
  *   uncoverEdges(),
- *   looseBoundaries()
+ *   looseBoundaries(),
+ *   uncleanEdges()
  * )
  * // -> {
  * //  ...toX(basedOnInnerWidth(150)),
  * //  ...fromX(0),
  * //  ...scroll(document.querySelector('.scrollable-element')),
- * //  ...uncoverEdges()
- * //  ...looseBoundaries()
+ * //  ...uncoverEdges(),
+ * //  ...looseBoundaries(),
+ * //  ...uncleanEdges()
  * // }
  * ```
  * 
