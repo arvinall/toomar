@@ -352,6 +352,12 @@ describe('Out of ranges', () => {
         await expect(promise).rejects.toThrowError(didNotObserveMessageWithAppendix)
       }
 
+      ;({ promise, resolve, reject } = createPromise())
+
+      emitScroll(eventEmitter, createScrollEvent('top', fromYSource))
+
+      await promise
+
       for (let i = (toYSource + 1); i < ((toYSource + fromYSource) + 1); i++) {
         ;({ promise, resolve, reject } = createPromise())
 
@@ -397,6 +403,12 @@ describe('Out of ranges', () => {
 
         await expect(promise).rejects.toThrowError(didNotObserveMessageWithAppendix)
       }
+
+      ;({ promise, resolve, reject } = createPromise())
+
+      emitScroll(eventEmitter, createScrollEvent('left', fromXSource))
+
+      await promise
 
       for (let i = (toXSource + 1); i < ((toXSource + fromXSource) + 1); i++) {
         ;({ promise, resolve, reject } = createPromise())
@@ -449,6 +461,15 @@ describe('Out of ranges', () => {
 
         await expect(promise).rejects.toThrowError(didNotObserveMessageWithAppendix)
       }
+
+      ;({ promise, resolve, reject } = createPromise())
+
+      emitScroll(
+        eventEmitter,
+        createScrollEvent('top', fromYSource, 'left', fromYSource)
+      )
+
+      await promise
 
       for (let i = (toYSource + 1); i < ((toYSource + fromYSource) + 1); i++) {
         ;({ promise, resolve, reject } = createPromise())
