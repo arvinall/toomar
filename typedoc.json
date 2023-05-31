@@ -5,7 +5,6 @@
   "entryPoints": ["lib/*.d.ts", "lib/*/*.d.ts"],
   "readme": "README.md",
   "out": "docs",
-  "theme": "github-wiki",
   "excludeInternal": true,
   "excludePrivate": true,
   "excludeProtected": true,
