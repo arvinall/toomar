@@ -11,7 +11,7 @@ import { config } from './config'
  * > When {@link from} is `100` and {@link to} is `300`,
  *   and scroll is beyond `100` and behind `300` for example `150`,
  *   and then it's come to beyond `300` for example `350`,
- *   {@link listen} emits `300`
+ *   {@link listen} emits `200` (`300 - 100`)
  * 
  * > When {@link from} is `100` and {@link to} is `300`,
  *   and scroll is beyond `100` and behind `300` for example `250`,
