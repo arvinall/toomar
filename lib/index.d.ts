@@ -1,4 +1,6 @@
 // Units
+export * as units from './units'
+
 export { px } from './units/px'
 
 export { em } from './units/em'
@@ -6,6 +8,8 @@ export { em } from './units/em'
 export { percent } from './units/percent'
 
 // Operators
+export * as operators from './operators'
+
 export { em as multiply } from './units/em'
 
 export { divide } from './operators/divide'
@@ -15,6 +19,8 @@ export { add } from './operators/add'
 export { subtract } from './operators/subtract'
 
 // Configs
+export * as configs from './configs'
+
 export { fromY, fromY as from } from './configs/from-y'
 
 export { fromX } from './configs/from-x'
@@ -42,6 +48,8 @@ export { uncleanEdges } from './configs/unclean-edges'
 export { config } from './configs/config'
 
 // Locators
+export * as locators from './locators'
+
 export { maxScrollY, maxScrollY as maxScroll } from './locators/max-scroll-y'
 
 export { maxScrollX } from './locators/max-scroll-x'
@@ -55,9 +63,13 @@ export { bottomOf } from './locators/bottom-of'
 export { rightOf } from './locators/right-of'
 
 // Schedulers
+export * as schedulers from './schedulers'
+
 export { auditAnimationFrame } from './schedulers/audit-animation-frame'
 
 // Transformers
+export * as transformers from './transformers'
+
 export { fractionYOf, fractionYOf as fractionOf } from './transformers/fraction-y-of'
 
 export { fractionXOf } from './transformers/fraction-x-of'
@@ -67,6 +79,8 @@ export { directionOfY, directionOfY as direction } from './transformers/directio
 export { directionOfX } from './transformers/direction-of-x'
 
 // Filters
+export * as filters from './filters'
+
 export {
   filterOutYDuplicates,
   filterOutYDuplicates as filterOutDuplicates
