@@ -8,5 +8,25 @@
   "excludeInternal": true,
   "excludePrivate": true,
   "excludeProtected": true,
-  "cleanOutputDir": true
+  "cleanOutputDir": true,
+  "searchInComments": true,
+  "kindSortOrder": ["Function"],
+  "navigation": {
+    "includeCategories": true,
+    "includeGroups": false
+  },
+  "categorizeByGroup": false,
+  "categoryOrder": [
+    "listen",
+    "Configs",
+    "Units",
+    "Operators",
+    "Locators",
+    "Transformers",
+    "Schedulers",
+    "Filters",
+    "*",
+    "Internals"
+  ],
+  "plugin": ["typedoc-plugin-merge-modules"]
 }
