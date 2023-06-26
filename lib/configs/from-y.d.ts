@@ -6,7 +6,7 @@ import { toX } from './to-x'
 import { IUnitInput, IUnitValue } from '../units'
 
 /**
- * `fromY` config, define {@link listen}'s start point in **Y** axis
+ * `fromY` config, defines {@link listen}'s start point in **Y** axis
  * by {@link IUnitInput}
  * 
  * @example
