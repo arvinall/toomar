@@ -5,10 +5,16 @@ import {
 } from 'rxjs/internal/observable/fromEvent'
 import { Observable as RxObservable } from 'rxjs'
 
+import { listen } from '../listen'
+import { touchScroll } from './touch-scroll'
+import { config } from './config'
+
 /**
  * `ITarget` is an object with `scrollTop` and `scrollLeft` properties
  * 
  * that used to describe scroll state frame
+ * 
+ * @category Configs/scroll
  */
 export interface ITarget {
   scrollTop: number
@@ -22,6 +28,8 @@ export interface ITarget {
  * 
  * @typeParam T `target`
  * @typeParam E `realEvent`
+ * 
+ * @category Configs/scroll
  */
 export interface IEventPresenter <T extends ITarget = ITarget, E = undefined> {
   target: T
@@ -36,6 +44,8 @@ export interface IEventPresenter <T extends ITarget = ITarget, E = undefined> {
  * with just one more special typescript-only property
  * 
  * @see [rxjs.Observable](https://rxjs.dev/api/index/class/Observable)
+ * 
+ * @category Configs/scroll
  */
 interface ICastableRxObservable <T> extends RxObservable <T> {
   /** `__T__` type is equal to `T` type argument */
@@ -46,6 +56,8 @@ interface ICastableRxObservable <T> extends RxObservable <T> {
  * `IScrollConfig` is an object with `scroll` property
  * 
  * @typeParam T type of value that scroll observable observe (`Event` or {@link IEventPresenter})
+ * 
+ * @category Configs/scroll
  */
 export interface IScrollConfig <
   T extends Event | IEventPresenter<unknown, unknown> = Event
@@ -58,8 +70,15 @@ export interface IScrollConfig <
 }
 
 /**
+ * `scroll` config, sets {@link listen}'s source observable to the DOM scroll event
+ * 
+ * For some Safari versions you need to listen to both `scroll` and `touchmove` events,
+ * in that case use {@link touchScroll} config instead
+ * 
  * @example
  * ```js
+ * import { scroll } from 'toomar'
+ * 
  * scroll(window) // -> { scroll: rxjs.fromEvent(window, 'scroll') }
  * 
  * const scrollableElement = document.querySelector('.scrollable-element')
@@ -78,6 +97,13 @@ export interface IScrollConfig <
  * 
  * @see [rxjs.Observable](https://rxjs.dev/api/index/class/Observable)
  * @see [rxjs.fromEvent](https://rxjs.dev/api/index/function/fromEvent)
+ * @see [Event](https://developer.mozilla.org/en-US/docs/Web/API/Event)
+ * @see [TouchEvent](https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent)
+ * @see {@link touchScroll}
+ * @see {@link config}
+ * 
+ * @category Configs
+ * @category Configs/scroll
  */
 export function scroll (
   source: HasEventTargetAddRemove<Event> | ArrayLike<HasEventTargetAddRemove<Event>>,
