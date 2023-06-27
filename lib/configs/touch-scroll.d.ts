@@ -4,42 +4,69 @@ import {
   EventListenerOptions
 } from 'rxjs/internal/observable/fromEvent'
 
-import type { ITarget, IEventPresenter, IScrollConfig } from './scroll'
+import { IEventPresenter, IScrollConfig, scroll } from './scroll'
+import { listen } from '../listen'
+import { config } from './config'
 
-/** @see {@link https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#options EventTarget#addEventListener options} */
+/**
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#options EventTarget#addEventListener options}
+ *
+ * @category Configs/touchScroll
+ */
 interface ITouchScrollEventListenersOptions {
   touchOptions?: EventListenerOptions
   scrollOptions?: EventListenerOptions
 }
 
+/** @category Configs/touchScroll */
 type ITouchScrollConfig = IScrollConfig<
   IEventPresenter<HTMLElement, TouchEvent | Event>
 >
 
 /**
+ * `touchScroll` config, sets {@link listen}'s source observable to the DOM `scroll` and `touchmove` events
+ * 
+ * Useful for some Safari versions that you need to listen to both `scroll` and `touchmove` events
+ * 
  * @example
  * ```js
+ * import { touchScroll } from 'toomar'
+ * 
  * touchScroll(window) // -> {
  * //  scroll: rxjs.merge(
- * //    rxjs.fromEvent(window, 'touchmove'),
- * //    rxjs.fromEvent(window, 'scroll')
- * //  ).pipe(
- * //    rxjs.filter(// filter duplicates)
- * //  )
+ * //    rxjs.fromEvent(document.scrollingElement, 'touchmove'),
+ * //    rxjs.fromEvent(document.scrollingElement, 'scroll')
+ * //  ).pipe(rxjs.filter()) // filter duplicates
  * // }
+ * ```
  * 
- * const scrollableElement = document.querySelector('.scrollable-element')
+ * @example
+ * ```js
+ * import { touchScroll } from 'toomar'
+ * 
+ * const scrollableElement = (
+ *   document.querySelector('.scrollable-element')
+ * )
  * 
  * touchScroll(
  *   scrollableElement,
- *   { touchOptions: { passive: false }, scrollOptions: { capture: true } }
+ *   {
+ *     touchOptions: { passive: false },
+ *     scrollOptions: { capture: true }
+ *   }
  * ) // -> {
  * //  scroll: rxjs.merge(
- * //    rxjs.fromEvent(scrollableElement, 'touchmove', { passive: false }),
- * //    rxjs.fromEvent(scrollableElement, 'scroll', { capture: true })
- * //  ).pipe(
- * //    rxjs.filter(// filter duplicates)
- * //  )
+ * //    rxjs.fromEvent(
+ * //      scrollableElement,
+ * //      'touchmove',
+ * //      { passive: false }
+ * //    ),
+ * //    rxjs.fromEvent(
+ * //      scrollableElement,
+ * //      'scroll',
+ * //      { capture: true }
+ * //    )
+ * //  ).pipe(rxjs.filter()) // filter duplicates
  * // }
  * ```
  * 
@@ -52,6 +79,11 @@ type ITouchScrollConfig = IScrollConfig<
  * 
  * @see [rxjs.Observable](https://rxjs.dev/api/index/class/Observable)
  * @see [rxjs.fromEvent](https://rxjs.dev/api/index/function/fromEvent)
+ * @see {@link scroll}
+ * @see {@link config}
+ * 
+ * @category Configs
+ * @category Configs/touchScroll
  */
 export function touchScroll (
   source: (
