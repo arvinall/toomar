@@ -31,3 +31,10 @@ import { filterOutXDuplicates } from './filter-out-x-duplicates'
  * @category Filters
  */
 export function filterOutYDuplicates <T> (): RxOperatorFunction<T, T>
+
+/**
+ * ### Alias for {@link filterOutYDuplicates}
+ * 
+ * @category Filters
+ */
+export const filterOutDuplicates = filterOutYDuplicates

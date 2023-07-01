@@ -35,3 +35,10 @@ import { IUnitInput, IUnitValue } from '../units'
  * @category Configs
  */
 export function fromY (value: IUnitInput): { fromY: IUnitValue, from: IUnitValue }
+
+/**
+ * ### Alias for {@link fromY}
+ * 
+ * @category Configs
+ */
+export const from = fromY

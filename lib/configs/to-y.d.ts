@@ -32,3 +32,10 @@ import { IUnitInput, IUnitValue } from '../units'
  * @category Configs
  */
 export function toY (value: IUnitInput): { toY: IUnitValue, to: IUnitValue }
+
+/**
+ * ### Alias for {@link toY}
+ * 
+ * @category Configs
+ */
+export const to = toY

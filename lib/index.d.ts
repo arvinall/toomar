@@ -21,17 +21,23 @@ export { subtract } from './operators/subtract'
 // Configs
 export * as configs from './configs'
 
-export { fromY, fromY as from } from './configs/from-y'
+export { fromY, from } from './configs/from-y'
 
 export { fromX } from './configs/from-x'
 
-export { toY, toY as to } from './configs/to-y'
+export { toY, to } from './configs/to-y'
 
 export { toX } from './configs/to-x'
 
-export { scroll } from './configs/scroll'
+export {
+  scroll,
+  IEventPresenter, ITarget, IScrollConfig, ICastableRxObservable
+} from './configs/scroll'
 
-export { touchScroll } from './configs/touch-scroll'
+export {
+  touchScroll,
+  ITouchScrollConfig, ITouchScrollEventListenersOptions
+} from './configs/touch-scroll'
 
 export { coverEdges } from './configs/cover-edges'
 
@@ -45,7 +51,11 @@ export { cleanEdges } from './configs/clean-edges'
 
 export { uncleanEdges } from './configs/unclean-edges'
 
-export { config } from './configs/config'
+export {
+  config,
+  AndOptionals, CleanEdges, Config, ConfigParameters, CoverEdges,
+  Defaults, FromX, FromY, OrOptionals, Requireds, StrictBoundaries
+} from './configs/config'
 
 // Locators
 export * as locators from './locators'
@@ -82,11 +92,14 @@ export { directionOfX } from './transformers/direction-of-x'
 export * as filters from './filters'
 
 export {
-  filterOutYDuplicates,
-  filterOutYDuplicates as filterOutDuplicates
+  filterOutYDuplicates, filterOutDuplicates
 } from './filters/filter-out-y-duplicates'
 
 export { filterOutXDuplicates } from './filters/filter-out-x-duplicates'
 
 // Listen
-export { listen } from './listen'
+export {
+  listen,
+  IBaseState, IXState, IYState, ReturnTypeOfConfig, State,
+  TargetOfRxObservable, ToX, ToY, ToYAndToX, TypeOfRxObservable, YStateAndXState
+} from './listen'

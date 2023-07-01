@@ -1,42 +1,51 @@
 import { Observable as RxObservable } from 'rxjs'
 
-import type { Requireds } from './configs/config'
-
-import { config } from './configs/config'
+import { config, Requireds } from './configs/config'
 import { toY } from './configs/to-y'
 import { toX } from './configs/to-x'
 
-type Config = ReturnType<typeof config>
+/** @category listen */
+type ReturnTypeOfConfig = ReturnType<typeof config>
 
+/** @category listen */
 type ToY = ReturnType<typeof toY>
+/** @category listen */
 type ToX = ReturnType<typeof toX>
 
+/** @category listen */
 type ToYAndToX = ToY & ToX
 
+/** @category listen */
 type TypeOfRxObservable <T> = (
   T extends RxObservable<Event>
     ? Event
     : T['__T__']
 )
 
+/** @category listen */
 type TargetOfRxObservable <T> = (
   T extends RxObservable<Event>
     ? HTMLElement
     : T['__T__']['target']
 )
 
+/** @category listen */
 interface IBaseState <T> {
   config: T,
   event: TypeOfRxObservable<T['scroll']>,
   targetElement: TargetOfRxObservable<T['scroll']>
 }
 
+/** @category listen */
 interface IYState <T> extends IBaseState <T> { y: number }
 
+/** @category listen */
 interface IXState <T> extends IBaseState <T> { x: number }
 
+/** @category listen */
 type YStateAndXState <T> = IYState<T> & IXState<T>
 
+/** @category listen */
 type State <T> = (
   T extends ToYAndToX
     ? YStateAndXState<T>
@@ -48,10 +57,12 @@ type State <T> = (
 )
 
 /**
- * listen, spy scroll based on {@link configs/config.config}
+ * listen, spy scroll based on {@link config}
  * 
  * @example
  * ```js
+ * import { to, config, listen, from, toX, fromX } from 'toomar'
+ * 
  * listen(config(to(400))).subscribe(
  *   ({ y }) => y // y is a number between 0 to 400
  * )
@@ -74,12 +85,14 @@ type State <T> = (
  * ```
  * 
  * @returns
- * an rxjs observable that is equivalent to
- * config `scroll` observable with config based filter
- * and a mapper that creates and observe next {@link State}
+ * an rxjs observable that use config `scroll` observable,
+ * with config based filter and mapper,
+ * that creates and observe next {@link State}
  * 
- * @see {@link configs/config.config}
+ * @see {@link config}
+ * 
+ * @category listen
  */
-export function listen <T extends Config> (
+export function listen <T extends ReturnTypeOfConfig> (
   config: T & Requireds
 ): RxObservable<State<T>>

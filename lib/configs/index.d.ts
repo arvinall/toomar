@@ -1,14 +1,20 @@
-export { fromY, fromY as from } from './from-y'
+export { fromY, from } from './from-y'
 
 export { fromX } from './from-x'
 
-export { toY, toY as to } from './to-y'
+export { toY, to } from './to-y'
 
 export { toX } from './to-x'
 
-export { scroll } from './scroll'
+export {
+  scroll,
+  IEventPresenter, ITarget, IScrollConfig, ICastableRxObservable
+} from './scroll'
 
-export { touchScroll } from './touch-scroll'
+export {
+  touchScroll,
+  ITouchScrollConfig, ITouchScrollEventListenersOptions
+} from './touch-scroll'
 
 export { coverEdges } from './cover-edges'
 
@@ -22,4 +28,8 @@ export { cleanEdges } from './clean-edges'
 
 export { uncleanEdges } from './unclean-edges'
 
-export { config } from './config'
+export {
+  config,
+  AndOptionals, CleanEdges, Config, ConfigParameters, CoverEdges,
+  Defaults, FromX, FromY, OrOptionals, Requireds, StrictBoundaries
+} from './config'
