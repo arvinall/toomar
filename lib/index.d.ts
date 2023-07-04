@@ -60,7 +60,7 @@ export {
 // Locators
 export * as locators from './locators'
 
-export { maxScrollY, maxScrollY as maxScroll } from './locators/max-scroll-y'
+export { maxScrollY, maxScroll } from './locators/max-scroll-y'
 
 export { maxScrollX } from './locators/max-scroll-x'
 
