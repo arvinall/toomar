@@ -1,4 +1,4 @@
-export { em as multiply } from '../units/em'
+export { multiply } from './multiply'
 
 export { divide } from './divide'
 
