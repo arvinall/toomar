@@ -23,7 +23,7 @@ import { listen } from '../listen'
  * combination of `rxjs.animationFrameScheduler` and `rxjs.auditTime`
  * with duration `0`, monotype operator function
  * 
- * @see listen
+ * @see {@link listen}
  * @see [requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame)
  * @see [rxjs.Subscriber](https://rxjs.dev/api/index/class/Subscriber)
  * @see [rxjs.animationFrameScheduler](https://rxjs.dev/api/index/const/animationFrameScheduler)

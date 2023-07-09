@@ -73,8 +73,8 @@ export type StateWithDirectionOfY <T> = T & {
  * 
  * @returns an rxjs operator that maps listen observable state to {@link StateWithDirectionOfY}
  * 
- * @see directionOfX
- * @see listen
+ * @see {@link directionOfX}
+ * @see {@link listen}
  * @see {@link https://rxjs.dev/api/index/interface/OperatorFunction rxjs.OperatorFunction}
  * @see {@link https://rxjs.dev/api/index/function/map rxjs.map}
  * @see {@link https://rxjs.dev/guide/operators rxjs operators guide}
