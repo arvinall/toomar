@@ -47,7 +47,7 @@ export interface IEventPresenter <T extends ITarget = ITarget, E = undefined> {
  * 
  * @category Configs/scroll
  */
-interface ICastableRxObservable <T> extends RxObservable <T> {
+export interface ICastableRxObservable <T> extends RxObservable <T> {
   /** `__T__` type is equal to `T` type argument */
   __T__: T
 }

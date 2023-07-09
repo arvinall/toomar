@@ -17,40 +17,40 @@ import { uncleanEdges } from './unclean-edges'
 import { listen } from '../listen'
 
 /** @category Configs/config */
-type CoverEdges = ReturnType<typeof coverEdges> | ReturnType<typeof uncoverEdges>
+export type CoverEdges = ReturnType<typeof coverEdges> | ReturnType<typeof uncoverEdges>
 
 /** @category Configs/config */
-type StrictBoundaries = (
+export type StrictBoundaries = (
   ReturnType<typeof strictBoundaries> |
   ReturnType<typeof looseBoundaries>
 )
 
 /** @category Configs/config */
-type CleanEdges = ReturnType<typeof cleanEdges> | ReturnType<typeof uncleanEdges>
+export type CleanEdges = ReturnType<typeof cleanEdges> | ReturnType<typeof uncleanEdges>
 
 /** @category Configs/config */
-type Defaults = ReturnType<typeof scroll> & CoverEdges & StrictBoundaries & CleanEdges
+export type Defaults = ReturnType<typeof scroll> & CoverEdges & StrictBoundaries & CleanEdges
 
 /** @category Configs/config */
-type FromX = ReturnType<typeof fromX>
+export type FromX = ReturnType<typeof fromX>
 
 /** @category Configs/config */
-type FromY = ReturnType<typeof fromY>
+export type FromY = ReturnType<typeof fromY>
 
 /** @category Configs/config */
-type OrOptionals = FromY | FromX | IScrollConfig<unknown>
+export type OrOptionals = FromY | FromX | IScrollConfig<unknown>
 
 /** @category Configs/config */
-type AndOptionals = FromY & FromX & IScrollConfig
+export type AndOptionals = FromY & FromX & IScrollConfig
 
 /** @category Configs/config */
-type Requireds = ReturnType<typeof toY> | ReturnType<typeof toX>
+export type Requireds = ReturnType<typeof toY> | ReturnType<typeof toX>
 
 /** @category Configs/config */
-type ConfigParameters = Array<Requireds | OrOptionals | Partial<Defaults>>
+export type ConfigParameters = Array<Requireds | OrOptionals | Partial<Defaults>>
 
 /** @category Configs/config */
-type Config <T extends ConfigParameters> = MergeAll<[
+export type Config <T extends ConfigParameters> = MergeAll<[
   Defaults, Partial<AndOptionals>, ...T
 ]>
 

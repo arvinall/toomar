@@ -13,13 +13,13 @@ import { config } from './config'
  *
  * @category Configs/touchScroll
  */
-interface ITouchScrollEventListenersOptions {
+export interface ITouchScrollEventListenersOptions {
   touchOptions?: EventListenerOptions
   scrollOptions?: EventListenerOptions
 }
 
 /** @category Configs/touchScroll */
-type ITouchScrollConfig = IScrollConfig<
+export type ITouchScrollConfig = IScrollConfig<
   IEventPresenter<HTMLElement, TouchEvent | Event>
 >
 
