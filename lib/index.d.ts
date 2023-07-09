@@ -80,7 +80,10 @@ export { auditAnimationFrame } from './schedulers/audit-animation-frame'
 // Transformers
 export * as transformers from './transformers'
 
-export { fractionYOf, fractionYOf as fractionOf } from './transformers/fraction-y-of'
+export {
+  fractionYOf, fractionOf,
+  IFractionOf, StateWithFractionYOf
+} from './transformers/fraction-y-of'
 
 export { fractionXOf } from './transformers/fraction-x-of'
 
