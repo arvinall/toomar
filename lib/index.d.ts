@@ -86,7 +86,10 @@ export { fractionXOf } from './transformers/fraction-x-of'
 
 export { directionOfY, directionOfY as direction } from './transformers/direction-of-y'
 
-export { directionOfX } from './transformers/direction-of-x'
+export {
+  directionOfX,
+  StateWithDirectionOfX
+} from './transformers/direction-of-x'
 
 // Filters
 export * as filters from './filters'

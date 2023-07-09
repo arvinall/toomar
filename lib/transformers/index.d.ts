@@ -4,4 +4,7 @@ export { fractionXOf } from './fraction-x-of'
 
 export { directionOfY, directionOfY as direction } from './direction-of-y'
 
-export { directionOfX } from './direction-of-x'
+export {
+  directionOfX,
+  StateWithDirectionOfX
+} from './direction-of-x'
