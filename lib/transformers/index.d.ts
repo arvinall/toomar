@@ -3,7 +3,10 @@ export {
   IFractionOf, StateWithFractionYOf
 } from './fraction-y-of'
 
-export { fractionXOf } from './fraction-x-of'
+export {
+  fractionXOf,
+  StateWithFractionXOf
+} from './fraction-x-of'
 
 export {
   directionOfY, direction,

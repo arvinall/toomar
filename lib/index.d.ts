@@ -85,7 +85,10 @@ export {
   IFractionOf, StateWithFractionYOf
 } from './transformers/fraction-y-of'
 
-export { fractionXOf } from './transformers/fraction-x-of'
+export {
+  fractionXOf,
+  StateWithFractionXOf
+} from './transformers/fraction-x-of'
 
 export {
   directionOfY, direction,
