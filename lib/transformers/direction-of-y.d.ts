@@ -35,7 +35,6 @@ export type IDirection = Backward | Forward
  *   })
  * ```
  * 
- * @category Transformers
  * @category Transformers/directionOfY
  */
 export type StateWithDirectionOfY <T> = T & {

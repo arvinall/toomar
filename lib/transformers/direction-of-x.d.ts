@@ -27,7 +27,6 @@ import { listen } from '../listen'
  *   })
  * ```
  * 
- * @category Transformers
  * @category Transformers/directionOfX
  */
 export type StateWithDirectionOfX <T> = T & { directionOfX: IDirection }
