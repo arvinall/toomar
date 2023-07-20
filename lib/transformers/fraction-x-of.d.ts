@@ -90,4 +90,4 @@ export type StateWithFractionXOf <T> = T & { fractionXOf: IFractionOf }
  */
 export function fractionXOf <T> (
   target: number
-): RxOperatorFunction<T, StateWithFractionXOf<T>>
+): RxOperatorFunction<T, T extends StateWithFractionXOf<unknown> ? T : StateWithFractionXOf<T>>

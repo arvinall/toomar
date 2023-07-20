@@ -104,7 +104,7 @@ export type StateWithFractionYOf <T> = T & {
  */
 export function fractionYOf <T> (
   target: number
-): RxOperatorFunction<T, StateWithFractionYOf<T>>
+): RxOperatorFunction<T, T extends StateWithFractionYOf<unknown> ? T : StateWithFractionYOf<T>>
 
 /**
  * ### Alias for {@link fractionYOf}
