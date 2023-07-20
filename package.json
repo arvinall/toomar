@@ -25,7 +25,9 @@
     "dev:test": "NODE_NO_WARNINGS=1 node scripts/dev-test-script.js",
     "dev:format": "node scripts/format-script.js",
     "dev:format:scripts": "node scripts/format-script.js scripts",
-    "docs": "rimraf docs && typedoc"
+    "docs": "npm run docs:generate && npm run docs:serve",
+    "docs:generate": "typedoc",
+    "docs:serve": "http-server docs"
   },
   "repository": {
     "type": "git",
@@ -56,6 +58,7 @@
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-n": "^15.7.0",
     "eslint-plugin-promise": "^6.1.1",
+    "http-server": "^14.1.1",
     "jest": "^28.1.3",
     "rimraf": "^3.0.2",
     "typedoc": "^0.24.7",
