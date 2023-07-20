@@ -1,7 +1,6 @@
-import { MergeAll } from 'ramda/tools'
+import { O } from 'ts-toolbelt'
 
-import type { IScrollConfig } from './scroll'
-
+import { IScrollConfig } from './scroll'
 import { fromY } from './from-y'
 import { toY } from './to-y'
 import { fromX } from './from-x'
@@ -50,7 +49,7 @@ export type Requireds = ReturnType<typeof toY> | ReturnType<typeof toX>
 export type ConfigParameters = Array<Requireds | OrOptionals | Partial<Defaults>>
 
 /** @category Configs/config */
-export type Config <T extends ConfigParameters> = MergeAll<[
+export type Config <T extends ConfigParameters> = O.Assign<{}, [
   Defaults, Partial<AndOptionals>, ...T
 ]>
 
