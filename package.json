@@ -13,11 +13,12 @@
   "scripts": {
     "prepack": "npm run build",
     "test": "NODE_NO_WARNINGS=1 NODE_OPTIONS=--experimental-vm-modules jest",
-    "build": "rimraf build && npm run build:esm && npm run build:esm:min && npm run build:iife && npm run build:iife:min",
+    "build": "rimraf build && npm run build:esm && npm run build:esm:min && npm run build:iife && npm run build:iife:min && npm run build:declarations",
     "build:esm": "rimraf build/toomar.esm.js && esbuild lib/index.js --bundle --sourcemap --format=esm --outfile=build/toomar.esm.js",
     "build:esm:min": "rimraf build/toomar.esm.min.js && esbuild lib/index.js --bundle --minify --sourcemap --format=esm --outfile=build/toomar.esm.min.js",
     "build:iife": "rimraf build/toomar.js && esbuild lib/index.js --bundle --sourcemap --format=iife --global-name=toomar --outfile=build/toomar.js",
     "build:iife:min": "rimraf build/toomar.min.js && esbuild lib/index.js --bundle --minify --sourcemap --format=iife --global-name=toomar --outfile=build/toomar.min.js",
+    "build:declarations": "node scripts/create-build-declarations.js",
     "lint": "eslint lib",
     "lint:scripts": "eslint scripts",
     "format": "eslint --fix lib",

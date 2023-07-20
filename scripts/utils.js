@@ -34,6 +34,9 @@ export const srcDirectory = path.resolve(rootDirectory, 'lib')
 /** @type {string} */
 export const testsDirectory = path.resolve(rootDirectory, 'tests')
 
+/** @type {string} */
+export const distDirectory = path.resolve(rootDirectory, 'build')
+
 /**
  * Create watcher
  *
