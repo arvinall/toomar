@@ -1,11 +1,11 @@
-export { maxScrollY, maxScroll } from './max-scroll-y'
+export * from './max-scroll-y'
 
-export { maxScrollX } from './max-scroll-x'
+export * from './max-scroll-x'
 
-export { topOf } from './top-of'
+export * from './top-of'
 
-export { leftOf } from './left-of'
+export * from './left-of'
 
-export { bottomOf } from './bottom-of'
+export * from './bottom-of'
 
-export { rightOf } from './right-of'
+export * from './right-of'

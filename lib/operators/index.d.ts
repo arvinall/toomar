@@ -1,7 +1,7 @@
-export { multiply } from './multiply'
+export * from './multiply'
 
-export { divide } from './divide'
+export * from './divide'
 
-export { add } from './add'
+export * from './add'
 
-export { subtract } from './subtract'
+export * from './subtract'

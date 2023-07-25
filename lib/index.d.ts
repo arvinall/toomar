@@ -1,117 +1,89 @@
 // Units
-export * as units from './units'
+export * as units from './units/index'
 
-export { px } from './units/px'
+export * from './units/px'
 
-export { em } from './units/em'
+export * from './units/em'
 
-export { percent } from './units/percent'
+export * from './units/percent'
 
 // Operators
-export * as operators from './operators'
+export * as operators from './operators/index'
 
-export { multiply } from './operators/multiply'
+export * from './operators/multiply'
 
-export { divide } from './operators/divide'
+export * from './operators/divide'
 
-export { add } from './operators/add'
+export * from './operators/add'
 
-export { subtract } from './operators/subtract'
+export * from './operators/subtract'
 
 // Configs
-export * as configs from './configs'
+export * as configs from './configs/index'
 
-export { fromY, from } from './configs/from-y'
+export * from './configs/from-y'
 
-export { fromX } from './configs/from-x'
+export * from './configs/from-x'
 
-export { toY, to } from './configs/to-y'
+export * from './configs/to-y'
 
-export { toX } from './configs/to-x'
+export * from './configs/to-x'
 
-export {
-  scroll,
-  IEventPresenter, ITarget, IScrollConfig, ICastableRxObservable
-} from './configs/scroll'
+export * from './configs/scroll'
 
-export {
-  touchScroll,
-  ITouchScrollConfig, ITouchScrollEventListenersOptions
-} from './configs/touch-scroll'
+export * from './configs/touch-scroll'
 
-export { coverEdges } from './configs/cover-edges'
+export * from './configs/cover-edges'
 
-export { uncoverEdges } from './configs/uncover-edges'
+export * from './configs/uncover-edges'
 
-export { strictBoundaries } from './configs/strict-boundaries'
+export * from './configs/strict-boundaries'
 
-export { looseBoundaries } from './configs/loose-boundaries'
+export * from './configs/loose-boundaries'
 
-export { cleanEdges } from './configs/clean-edges'
+export * from './configs/clean-edges'
 
-export { uncleanEdges } from './configs/unclean-edges'
+export * from './configs/unclean-edges'
 
-export {
-  config,
-  AndOptionals, CleanEdges, Config, ConfigParameters, CoverEdges,
-  Defaults, FromX, FromY, OrOptionals, Requireds, StrictBoundaries
-} from './configs/config'
+export * from './configs/config'
 
 // Locators
-export * as locators from './locators'
+export * as locators from './locators/index'
 
-export { maxScrollY, maxScroll } from './locators/max-scroll-y'
+export * from './locators/max-scroll-y'
 
-export { maxScrollX } from './locators/max-scroll-x'
+export * from './locators/max-scroll-x'
 
-export { topOf } from './locators/top-of'
+export * from './locators/top-of'
 
-export { leftOf } from './locators/left-of'
+export * from './locators/left-of'
 
-export { bottomOf } from './locators/bottom-of'
+export * from './locators/bottom-of'
 
-export { rightOf } from './locators/right-of'
+export * from './locators/right-of'
 
 // Schedulers
-export * as schedulers from './schedulers'
+export * as schedulers from './schedulers/index'
 
-export { auditAnimationFrame } from './schedulers/audit-animation-frame'
+export * from './schedulers/audit-animation-frame'
 
 // Transformers
-export * as transformers from './transformers'
+export * as transformers from './transformers/index'
 
-export {
-  fractionYOf, fractionOf,
-  IFractionOf, StateWithFractionYOf
-} from './transformers/fraction-y-of'
+export * from './transformers/fraction-y-of'
 
-export {
-  fractionXOf,
-  StateWithFractionXOf
-} from './transformers/fraction-x-of'
+export * from './transformers/fraction-x-of'
 
-export {
-  directionOfY, direction,
-  Backward, Forward, IDirection, StateWithDirectionOfY
-} from './transformers/direction-of-y'
+export * from './transformers/direction-of-y'
 
-export {
-  directionOfX,
-  StateWithDirectionOfX
-} from './transformers/direction-of-x'
+export * from './transformers/direction-of-x'
 
 // Filters
-export * as filters from './filters'
+export * as filters from './filters/index'
 
-export {
-  filterOutYDuplicates, filterOutDuplicates
-} from './filters/filter-out-y-duplicates'
+export * from './filters/filter-out-y-duplicates'
 
-export { filterOutXDuplicates } from './filters/filter-out-x-duplicates'
+export * from './filters/filter-out-x-duplicates'
 
 // Listen
-export {
-  listen,
-  IBaseState, IXState, IYState, ReturnTypeOfConfig, State,
-  TargetOfRxObservable, ToX, ToY, ToYAndToX, TypeOfRxObservable, YStateAndXState
-} from './listen'
+export * from './listen'
