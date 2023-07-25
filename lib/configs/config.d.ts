@@ -13,6 +13,7 @@ import { looseBoundaries } from './loose-boundaries'
 import { cleanEdges } from './clean-edges'
 import { uncleanEdges } from './unclean-edges'
 
+import { Merge } from '../internals/merge'
 import { listen } from '../listen'
 
 /** @category Configs/config */
@@ -50,7 +51,8 @@ export type ConfigParameters = Array<Requireds | OrOptionals | Partial<Defaults>
 
 /** @category Configs/config */
 export type Config <T extends ConfigParameters> = O.Assign<{}, [
-  Defaults, Partial<AndOptionals>, ...T
+  Merge<Defaults, Partial<AndOptionals>>,
+  ...T
 ]>
 
 /**
