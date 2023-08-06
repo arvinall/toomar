@@ -1,8 +1,11 @@
+import { Element, Viewport } from '.'
 import { IUnitValue } from '../units'
 
 /**
  * `topOf` used to locate top position of DOM element
  * relative to the viewport or another element
+ * 
+ * `topOf` wraps its arguments in function when they're not functions
  * 
  * @example Relative to the document viewport
  * ```js
@@ -11,9 +14,10 @@ import { IUnitValue } from '../units'
  * const section1Element = document.querySelector('.section--1')
  * 
  * const topOfSection1Element = topOf(section1Element)
+ *   // or topOf(() => section1Element) when section1Element is not constant
  * 
  * topOfSection1Element() // -> (
- * //  section1Element.getBoundingClientRect().top +
+ * //  section1Element().getBoundingClientRect().top +
  * //    document.scrollingElement.scrollTop
  * // )
  * ```
@@ -27,9 +31,11 @@ import { IUnitValue } from '../units'
  * const appElement = document.querySelector('.app')
  * 
  * const topOfAppSection1Element = topOf(section1Element, appElement)
+ *   // or topOf(() => section1Element, () => appElement)
+ *   // when section1Element or appElement are not constant
  * 
  * topOfSection1Element() // -> (
- * //  section1Element.getBoundingClientRect().top + appElement.scrollTop
+ * //  section1Element().getBoundingClientRect().top + appElement().scrollTop
  * // )
  * ```
  * 
@@ -39,5 +45,5 @@ import { IUnitValue } from '../units'
  */
 export function topOf (
   target: Element,
-  viewport?: typeof globalThis | Document | Element = globalThis
+  viewport?: Viewport = globalThis
 ): IUnitValue
