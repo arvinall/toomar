@@ -17,7 +17,7 @@ import { IUnitValue } from '../units'
  *   // or topOf(() => section1Element) when section1Element is not constant
  * 
  * topOfSection1Element() // -> (
- * //  section1Element().getBoundingClientRect().top +
+ * //  section1Element.getBoundingClientRect().top +
  * //    document.scrollingElement.scrollTop
  * // )
  * ```
@@ -35,7 +35,7 @@ import { IUnitValue } from '../units'
  *   // when section1Element or appElement are not constant
  * 
  * topOfSection1Element() // -> (
- * //  section1Element().getBoundingClientRect().top + appElement().scrollTop
+ * //  section1Element.getBoundingClientRect().top + appElement.scrollTop
  * // )
  * ```
  * 
