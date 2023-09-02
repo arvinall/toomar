@@ -1,3 +1,4 @@
+import { Element, Viewport } from '.'
 import { rightOf } from './right-of'
 import { topOf } from './top-of'
 import { rightOf } from './right-of'
@@ -7,6 +8,8 @@ import { IUnitValue } from '../units'
  * `bottomOf` used to locate bottom position of DOM element
  * relative to the viewport or another element
  * 
+ * `bottomOf` wraps its arguments in function when they're not functions
+ * 
  * @example Relative to the document viewport
  * ```js
  * import { bottomOf } from 'toomar'
@@ -14,6 +17,7 @@ import { IUnitValue } from '../units'
  * const section1Element = document.querySelector('.section--1')
  * 
  * const bottomOfSection1Element = bottomOf(section1Element)
+ *   // or bottomOf(() => section1Element) when section1Element is not constant
  * 
  * bottomOfSection1Element() // -> (
  * //  section1Element.getBoundingClientRect().bottom +
@@ -30,6 +34,8 @@ import { IUnitValue } from '../units'
  * const appElement = document.querySelector('.app')
  * 
  * const bottomOfAppSection1Element = bottomOf(section1Element, appElement)
+ *   // or bottomOf(() => section1Element, () => appElement)
+ *   // when section1Element or appElement are not constant
  * 
  * bottomOfSection1Element() // -> (
  * //  section1Element.getBoundingClientRect().bottom + appElement.scrollTop
@@ -49,5 +55,5 @@ import { IUnitValue } from '../units'
  */
 export function bottomOf (
   target: Element,
-  viewport?: typeof globalThis | Document | Element = globalThis
+  viewport?: Viewport = globalThis
 ): IUnitValue
