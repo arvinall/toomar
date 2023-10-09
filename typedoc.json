@@ -5,17 +5,21 @@
   "entryPoints": ["lib/*.d.ts", "lib/*/*.d.ts"],
   "readme": "README.md",
   "out": "docs",
+  
   "excludeInternal": true,
   "excludePrivate": true,
   "excludeProtected": true,
   "cleanOutputDir": true,
   "searchInComments": true,
-  "kindSortOrder": ["Function"],
   "navigation": {
     "includeCategories": true,
     "includeGroups": false
   },
   "categorizeByGroup": false,
+  "githubPages": false,
+
+  "kindSortOrder": ["Function"],
+
   "categoryOrder": [
     "listen",
     "Configs",
@@ -28,5 +32,12 @@
     "*",
     "Internals"
   ],
-  "plugin": ["typedoc-plugin-merge-modules"]
+
+  "plugin": ["typedoc-plugin-merge-modules"],
+
+  "navigationLinks": { "Github": "https://github.com/arvinall/toomar" },
+  "sidebarLinks": {
+    "Website": "https://toomar.js.org",
+    "npm": "https://www.npmjs.com/package/toomar"
+  }
 }
