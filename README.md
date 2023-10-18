@@ -259,7 +259,7 @@ With this tool you can specify your target range and do whatever you want just w
 ### Filters
 `filters` are used to filter [listen][listen]'s observable
 
-* [filterOutDuplicates][filterOutDuplicates], [filterOutXDuplicates][filterOutXDuplicates]: are used when document, scrolls in multiple axes but you want to get fired just when scroll happens in your desired axis
+* [filterOutDuplicates][filterOutDuplicates], [filterOutXDuplicates][filterOutXDuplicates]: are used when document scrolls in multiple axes, but you want to observe just when scroll happens in your desired axis
 
 ## Contribution
 Toomar is open source and we appreciate [issue reports][Issues] and [pull requests][Pulls]
