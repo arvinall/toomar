@@ -7,9 +7,9 @@
 <br />
 
 <p align="center">
-  Toomar is a functional toolkit that used to handle progresses in a reactive and declarative way
+  Toomar is a functional toolkit that is used to handle progresses in a reactive and declarative way
   <br />
-  Useful to animate elements during scroll by default or create presentations etc …
+  Useful to animate elements during scrolling by default or creating presentations and etc.
   <br />
 </p>
 
@@ -66,9 +66,9 @@
 - [License](#license)
 
 ## Installation
-All you need to use Toomar is a package manager that use [npm registry][toomar npm]
+All you need to do for using Toomar is a package manager that use [npm registry][toomar npm]
 
-Toomar is a cross-environment package, so you can use Toomar in Browser, Deno and Node etc …
+Toomar is a cross-environment package, therefor you can use Toomar in Browser, Deno and Node etc …
 
 ### Browser or Node
 Install Toomar as a dependency with your preferred tool
@@ -122,8 +122,7 @@ import { listen, to, auditAnimationFrames, fractionOf } from 'npm:toomar@1'
 ```
 
 ## Overview
-Toomar contains sets of standalone functions
-that all used together to give you data that solves your problem
+Toomar contains sets of standalone functions which help you solve your problems.
 
 All of the functions that required more than one argument are [curried][Why Curry Helps] by default,
 for example you can use [percent][percent] **Unit** in two different ways:
@@ -218,49 +217,49 @@ The main tool that spy the source of the scroll is the [listen][listen]
 
 [listen][listen] accepts one `configs` argument and returns an [RxJS Observable][RxJS Observable]
 
-With this tool you can specify your target range and do what you want just when needed
+With this tool you can specify your target range and do whatever you want just when needed
 
 ### Configs
-`configs` used to provide [listen][listen]'s config
+`configs` are used to provide [listen][listen]'s config
 
-* [config][config]: used to merge configs and set defaults
-* [to/toY][to], [from/fromY][from], [toX][toX], [fromX][fromX]: used to specify ranges
-* [scroll][scroll], [touchScroll][touchScroll]: used to define source of the scroll
-* [strictBoundaries][strictBoundaries], [looseBoundaries][looseBoundaries]: used to define how [listen][listen] should handle the boundaries
-* [coverEdges][coverEdges], [uncoverEdges][uncoverEdges]: used to define how [listen][listen] should cover the edges when it escaped the ranges
-* [cleanEdges][cleanEdges], [uncleanEdges][uncleanEdges]: used to define how [listen][listen] should clean the edges when it crossed the ranges
+* [config][config]: is used to merge configs and set defaults
+* [to/toY][to], [from/fromY][from], [toX][toX], [fromX][fromX]: is used to specify ranges
+* [scroll][scroll], [touchScroll][touchScroll]: is used to define source of the scroll
+* [strictBoundaries][strictBoundaries], [looseBoundaries][looseBoundaries]: is used to define how [listen][listen] should handle the boundaries
+* [coverEdges][coverEdges], [uncoverEdges][uncoverEdges]: is used to define how [listen][listen] should cover the edges when it escapes the ranges
+* [cleanEdges][cleanEdges], [uncleanEdges][uncleanEdges]: is used to define how [listen][listen] should clean the edges when it crosses the ranges
 
 ### Locators
-`locators` used to locate things easier in viewport
+`locators` are used to locate things easier in viewport
 
-* [maxScroll/maxScrollY][maxScroll], [maxScrollX][maxScrollX]: used to provide the scroll maximum position
+* [maxScroll/maxScrollY][maxScroll], [maxScrollX][maxScrollX]: are used to provide the scrolling maximum position
 * [topOf][topOf], [bottomOf][bottomOf], [leftOf][leftOf], [rightOf][rightOf]: provide an element position based on viewport
 
 ### Transformers
-`transformers` used to provide data that useful for your problem
+`transformers` are used to provide data that is useful for your problem
 
-* [fractionOf/fractionYOf][fractionOf], [fractionXOf][fractionXOf]: used to convert scroll position to a value that fits your needs
-* [direction/directionOfY][direction], [directionOfX][directionOfX]: provide scroll direction
+* [fractionOf/fractionYOf][fractionOf], [fractionXOf][fractionXOf]: is used to convert scroll position to a value that fits your needs
+* [direction/directionOfY][direction], [directionOfX][directionOfX]: provides scroll direction
 
 ### Schedulers
-`schedulers` used to manage your subscriber call time
+`schedulers` are used to manage your subscriber call time
 
-* [auditAnimationFrame][auditAnimationFrame]: used to run your subscriber in the [requestAnimationFrame][requestAnimationFrame] loop
+* [auditAnimationFrame][auditAnimationFrame]: is used to run your subscriber in the [requestAnimationFrame][requestAnimationFrame] loop
 
 ### Units
-`units` used to define the [listen][listen]'s range in the **CSS** way
+`units` are used to define the [listen][listen]'s range in the **CSS** way
 
-* [em][em], [percent][percent], [px][px]: used to make relation between ranges
+* [em][em], [percent][percent], [px][px]: is used to make relation between ranges
 
 ### Operators
-`operators` used to do math operations on `units`
+`operators` are used to do the math operations on `units`
 
-* [add][add], [subtract][subtract], [multiply][multiply], [divide][divide]: used to make relation between units
+* [add][add], [subtract][subtract], [multiply][multiply], [divide][divide]: are used to make relation between units
 
 ### Filters
-`filters` used to filter [listen][listen]'s observable
+`filters` are used to filter [listen][listen]'s observable
 
-* [filterOutDuplicates][filterOutDuplicates], [filterOutXDuplicates][filterOutXDuplicates]: used when document, scrolls in multiple axes but you want to get fired just when scroll happens in your desired axis
+* [filterOutDuplicates][filterOutDuplicates], [filterOutXDuplicates][filterOutXDuplicates]: are used when document, scrolls in multiple axes but you want to get fired just when scroll happens in your desired axis
 
 ## Contribution
 Toomar is open source and we appreciate [issue reports][Issues] and [pull requests][Pulls]
@@ -280,7 +279,7 @@ Toomar follows [JavaScript Standard Style][JavaScript Standard Style], with few 
 4. Prefer longer, more descriptive names, over shorter names. For most variables, minification means we don't pay for extra characters in production
 5. Implement in JavaScript and declare its inputs and output in TypeScript
 6. All of the functions that required more than one argument must be [curried][Why Curry Helps]
-7. All of the values that might change regularly must accepted as both function and non-function
+7. All of the values that might change regularly must be accepted as both function and non-function
 
 ### Set up
 Toomar developed with [Node.js][Node.js] tools
@@ -349,7 +348,7 @@ npm run dev:format:scripts
 
 ## Support
 ### Share In Social Media
-Support Toomar by share your thoughts and make creative projects
+Support Toomar by sharing your thoughts and making creative projects
 
 [![Twitter](https://img.shields.io/badge/Twitter-%23FFFFFF.svg?logo=X&logoColor=black)](https://twitter.com/intent/tweet?text=Toomar%0AFunctional%20toolkit%20that%20used%20to%20handle%20progresses%20in%20a%20reactive%20and%20declarative%20way%0Ahttps%3A//toomar.js.org)
 [![LinkedIn](https://img.shields.io/badge/Linkedin-%23FFFFFF.svg?logo=linkedin&logoColor=0077B5)](https://www.linkedin.com/shareArticle?mini=true&url=https%3A//toomar.js.org)
