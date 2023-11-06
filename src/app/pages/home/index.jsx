@@ -1,6 +1,19 @@
 import { always } from 'ramda'
 
-export const Home = always(<div class='bg-slate-100 text-center'>
-  <img src={import.meta.env.BASE_URL + 'toomar.svg'} alt="Toomar logo" />
-  <h1>Toomar's Home Page!</h1>
-</div>)
+import { resolvePath } from '../../../utilities'
+
+export const Home = always(
+  <div class='bg-slate-100 min-h-[100dvh] text-center'>
+    <div class='absolute top-1/2 w-full translate-y-[-65%]'>
+      <img class='inline h-48' src={resolvePath('toomar.svg')} alt="Toomar logo" />
+
+      <h1 class='text-2xl mt-4 font-bold'>Toomar</h1>
+
+      <p class='text-l mt-2 inline-block'>
+        Toomar is a functional toolkit that is used to handle progresses in a reactive and declarative way
+        <br />
+        Useful to animate elements during scrolling by default or creating presentations and etc.
+      </p>
+    </div>
+  </div>
+)

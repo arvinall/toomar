@@ -1,15 +1,37 @@
 /* @refresh reload */
 import { render } from 'solid-js/web'
 
+import {
+  objOf, invoker, flip, curryN, apply, always, head,
+  pipe, pair, prop, append, identity, unapply
+} from 'ramda'
+
+import { flippedMap, flippedBinaryCall } from '../utilities'
+
 import { Toomar } from './Toomar'
-import { always } from 'ramda'
 
 const { document } = globalThis
 
-export function setupApp (destination = document.body) {
-  const toomarRootElement = Object.assign(document.createElement('div'), { className: 'toomar' })
+const bodyElement = prop('body', document)
 
-  render(always(<Toomar />), toomarRootElement)
+const setDefaultDestination = pipe(unapply(identity), append(bodyElement), head)
 
-  destination.appendChild(toomarRootElement)
-}
+const objOfClassName = objOf('className')
+
+const createElement = flip(invoker(1, 'createElement'))(document)
+
+const appElement = Object.assign(createElement('div'), objOfClassName('toomar'))
+
+const renderApp = curryN(2, render)
+
+const appendChild = invoker(1, 'appendChild')
+
+export const setupApp = pipe(
+  setDefaultDestination,
+  pair(appElement),
+  flippedBinaryCall,
+  flippedMap([
+    pipe(head, renderApp(always(<Toomar />))),
+    apply(appendChild)
+  ])
+)
