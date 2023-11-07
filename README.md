@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://toomar.js.org/toomar.svg" alt="toomar-logo" width="96" height="96" />
+  <img src="https://arvinall.github.io/toomar/toomar.svg" alt="toomar-logo" width="96" height="96" />
 </p>
 
 <h1 align="center">Toomar</h1>
