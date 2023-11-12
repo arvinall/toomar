@@ -3,7 +3,7 @@ import { always } from 'ramda'
 import { resolvePath } from '../../../utilities'
 
 export const Home = always(
-  <div class='bg-slate-100 min-h-[100dvh] text-center'>
+  <div class='min-h-[100dvh] text-center'>
     <div class='absolute top-1/2 w-full translate-y-[-65%]'>
       <img class='inline h-48' src={resolvePath('toomar.svg')} alt="Toomar logo" />
 

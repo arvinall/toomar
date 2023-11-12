@@ -2,7 +2,7 @@
 import { render } from 'solid-js/web'
 
 import {
-  objOf, invoker, flip, curryN, apply, always, head,
+  invoker, flip, curryN, apply, always, head,
   pipe, pair, prop, append, identity, unapply
 } from 'ramda'
 
@@ -16,11 +16,9 @@ const bodyElement = prop('body', document)
 
 const setDefaultDestination = pipe(unapply(identity), append(bodyElement), head)
 
-const objOfClassName = objOf('className')
-
 const createElement = flip(invoker(1, 'createElement'))(document)
 
-const appElement = Object.assign(createElement('div'), objOfClassName('toomar'))
+const appElement = createElement('div')
 
 const renderApp = curryN(2, render)
 

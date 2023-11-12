@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html { @apply bg-background text-text leading-snug capitalize tracking-[-0.0125em]; }
+}
